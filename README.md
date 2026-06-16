@@ -40,25 +40,25 @@ uv run src/main.py session race -y 2025 -r 7
 
 ```bash
 # Full race calendar for a season
-uv run src/main.py  calendar schedule --year 2024
+uv run src/main.py calendar schedule --year 2024
 
 # Next upcoming race
-uv run src/main.py  calendar next
+uv run src/main.py calendar next
 ```
 
 ### Results
 
 ```bash
 # Race, qualifying or practice results
-uv run src/main.py  session race --year 2024 --round 5
-uv run src/main.py  session qualifying --year 2024 --round 5 --session Q
+uv run src/main.py session race --year 2024 --round 5
+uv run src/main.py session qualifying --year 2024 --round 5 --session Q
 ```
 
 ### Laps & Stints
 
 ```bash
 # Tyre stints and compounds
-uv run src/main.py  race stint --year 2024 --round 5 --driver VER
+uv run src/main.py race stint --year 2024 --round 5 --driver VER
 ```
 
 ## Session types
