@@ -41,3 +41,4 @@ def stint(
         )
 
     console.print(table)
+
