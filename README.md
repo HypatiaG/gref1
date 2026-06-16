@@ -1,6 +1,6 @@
 # gref1
 
-A command-line interface for Formula 1 data powered by the [FastF1](https://github.com/theOehrly/Fast-F1) Python library. Get race results, lap times, telemetry, tyre stints, weather data and more — straight from your terminal.
+A command-line interface for Formula 1 data powered by the [FastF1](https://github.com/theOehrly/Fast-F1) Python library. Get race results, lap times, telemetry, tyre stints, weather data and more straight from your terminal.
 
 ## Requirements
 
