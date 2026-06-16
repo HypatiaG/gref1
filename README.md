@@ -51,7 +51,7 @@ uv run src/main.py calendar next
 ```bash
 # Race, qualifying or practice results
 uv run src/main.py session race --year 2024 --round 5
-uv run src/main.py session qualifying --year 2024 --round 5 --session Q
+uv run src/main.py session qualifying --year 2024 --round 5
 ```
 
 ### Laps & Stints
