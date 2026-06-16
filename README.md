@@ -13,38 +13,52 @@ A command-line interface for Formula 1 data powered by the [FastF1](https://gith
 git clone https://github.com/HypatiaG/gref1.git
 cd gref1
 uv sync
-cd src
 ```
 
 ## Usage
 
 ```bash
-uv run main.py [command] [options]
+uv run src/main.py --help
+```
+
+## Quick Start
+
+```bash
+uv sync
+
+# View available commands
+uv run src/main.py --help
+
+# Show the 2025 calendar
+uv run src/main.py calendar schedule -y 2025
+
+# Show race results
+uv run src/main.py session race -y 2025 -r 7
 ```
 
 ### Schedule
 
 ```bash
 # Full race calendar for a season
-uv run main.py calendar schedule --year 2024
+uv run src/main.py  calendar schedule --year 2024
 
 # Next upcoming race
-uv run main.py calendar next
+uv run src/main.py  calendar next
 ```
 
 ### Results
 
 ```bash
 # Race, qualifying or practice results
-uv run main.py session race --year 2024 --round 5
-uv run main.py session qualifying --year 2024 --round 5 --session Q
+uv run src/main.py  session race --year 2024 --round 5
+uv run src/main.py  session qualifying --year 2024 --round 5 --session Q
 ```
 
 ### Laps & Stints
 
 ```bash
 # Tyre stints and compounds
-uv run main.py race stint --year 2024 --round 5 --driver VER
+uv run src/main.py  race stint --year 2024 --round 5 --driver VER
 ```
 
 ## Session types
@@ -64,9 +78,9 @@ gref1/
 └── src/
     ├── main.py
     ├── commands/
-    │   ├── schedule.py
-    │   ├── results.py
+    │   ├── calendar.py
     │   ├── race.py
+    │   ├── session.py
     └── utils/
         └── loading.py
 ```
