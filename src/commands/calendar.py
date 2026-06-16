@@ -3,6 +3,8 @@ import logging
 import typer
 from rich.console import Console
 from rich.table import Table
+from datetime import datetime
+from utils.loading import load_season
 
 app = typer.Typer()
 console = Console()
@@ -10,9 +12,9 @@ logging.getLogger("fastf1").setLevel(logging.CRITICAL)
 
 @app.command(help="Display race schedule in a year")
 def schedule(
-    year: int = typer.Option(...,"--year","-y", help="Year of the session")):
+    year: int = typer.Option(...,"--year","-y", help="Year of the season")):
 
-    session = f1.get_event_schedule(year)
+    session = load_season(year)
     table = Table(
         title=f"{year} — Race Schedule",
         show_lines=True,
@@ -36,3 +38,15 @@ def schedule(
         )
 
     console.print(table)
+
+@app.command(help="Display next race")
+def next():
+    current_datetime = datetime.now()
+    current_year = current_datetime.year
+    
+    session = load_season(current_year)
+
+    for i in session.itertuples():
+        if i.EventDate > current_datetime:
+            console.print(f"Next race: Round [bold magenta]{i.RoundNumber}[/bold magenta] - [bold magenta]{i.OfficialEventName}[/bold magenta] in [bold cyan]{i.Country}[/bold cyan] on [bold yellow]{i.EventDate.date().isoformat()}[/bold yellow]")
+            break
